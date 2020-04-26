@@ -11,6 +11,7 @@ import Translate9 from "../../components/Translate9";
 import MatchingPairsImage11 from "../../components/MatchingPairsImage11";
 import Writing14 from "../../components/Writing14";
 import Bingo15 from "../../components/Bingo15";
+import Question17 from "../../components/Question17";
 import Listening18 from "../../components/Listening18";
 import LessonProgress from "../../components/LessonProgress";
 
@@ -30,6 +31,7 @@ const Lesson = ({ lesson, firstSlide }) => {
 
   useEffect(() => {
     if (firstSlide) {
+      console.log(lesson);
       dispatch(setCurrentSlide(firstSlide));
       let _score = [];
       lesson.slides.forEach(() => {
@@ -48,6 +50,7 @@ const Lesson = ({ lesson, firstSlide }) => {
     const newOrder = order + 1;
     dispatch(setOrder(newOrder));
 
+    window.scrollTo(0,0);
     if (lesson.slides[newOrder]) {
       const _currentSlide = await getSlideAndMedia(lesson.slides[newOrder].id);
       dispatch(setCurrentSlide(_currentSlide));
@@ -120,6 +123,9 @@ const Lesson = ({ lesson, firstSlide }) => {
             {currentSlide.categoryId === "15" && (
               <Bingo15 slide={currentSlide} moveNextSlide={moveNextSlide} />
             )}
+            {currentSlide.categoryId === "17" && (
+              <Question17 slide={currentSlide} moveNextSlide={moveNextSlide} />
+            )}
             {currentSlide.categoryId === "18" && (
               <Listening18 slide={currentSlide} moveNextSlide={moveNextSlide} />
             )}
@@ -130,6 +136,7 @@ const Lesson = ({ lesson, firstSlide }) => {
   );
 };
 
+/*
 Lesson.getInitialProps = async ({ query }) => {
   const { id } = query;
   //const res = await fetch('https://sukhajata.com/api/lessons-th-en-graphql.php');
@@ -142,6 +149,32 @@ Lesson.getInitialProps = async ({ query }) => {
     lesson: lesson,
     firstSlide: firstSlide,
   };
-};
+};*/
+
+export async function getStaticProps({ params }) {
+  const lesson = await getLesson(params.id);
+  const firstSlide = await getSlideAndMedia(lesson.slides[0].id);
+
+  return {
+    props: {
+      lesson: lesson,
+      firstSlide: firstSlide,
+    },
+  }
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { id: '172' } },
+      { params: { id: '173' } },
+      { params: { id: '174' } },
+      { params: { id: '175' } },
+      { params: { id: '176' } },
+      { params: { id: '177' } }
+    ],
+    fallback: false 
+  };
+}
 
 export default Lesson;
