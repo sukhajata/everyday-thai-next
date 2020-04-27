@@ -31,7 +31,7 @@ const Lesson = ({ lesson, firstSlide }) => {
 
   useEffect(() => {
     if (firstSlide) {
-      console.log(lesson);
+      //console.log(lesson);
       dispatch(setCurrentSlide(firstSlide));
       let _score = [];
       lesson.slides.forEach(() => {

@@ -34,7 +34,7 @@ const Index = ({ lessons }) => {
                 component="img"
                 alt={lesson.name}
                 height="200"
-                image={"/img/" + lesson.imageName}
+                image={"/img/" + lesson.lessonOrder + ".jpg"}
               />
               <CardContent>
                 <Grid container direction="row" spacing={2}>
@@ -49,7 +49,7 @@ const Index = ({ lessons }) => {
                 </Grid>
                 <ul>
                   {points.map(item => (
-                    <li>
+                    <li key={item}>
                       <Typography
                         variant="body2"
                         color="textSecondary"
