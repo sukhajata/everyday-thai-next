@@ -15,7 +15,7 @@ import fetch from 'node-fetch';
 import Header from '../components/Header';
 
 const Index = ({ lessons }) => {
-  console.log(lessons);
+  //console.log(lessons);
   return (
     <>
     <Header />
@@ -37,16 +37,18 @@ const Index = ({ lessons }) => {
                 image={"/img/" + lesson.lessonOrder + ".jpg"}
               />
               <CardContent>
-                <Grid container direction="row" spacing={2}>
-                  <Grid item>
-                    <Chip color="primary" label={lesson.lessonOrder} />
+                <Link href={"/lesson/" + lesson.id}>
+                  <Grid container direction="row" spacing={2}>
+                    <Grid item>
+                      <Chip color="primary" label={lesson.lessonOrder} />
+                    </Grid>
+                    <Grid item>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        {lesson.name}
+                      </Typography>
+                    </Grid>
                   </Grid>
-                  <Grid item>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      {lesson.name}
-                    </Typography>
-                  </Grid>
-                </Grid>
+                </Link>
                 <ul>
                   {points.map(item => (
                     <li key={item}>
@@ -62,13 +64,6 @@ const Index = ({ lessons }) => {
                 </ul>
               </CardContent>
             </CardActionArea>
-            <CardActions>
-              <Link href={"/lesson/" + lesson.id}>
-                <Button size="small" color="primary">
-                  Start
-                </Button>
-              </Link>
-            </CardActions>
           </Card>
         );})}
       </Grid>

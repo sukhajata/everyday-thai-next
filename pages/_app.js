@@ -1,7 +1,8 @@
 import App from 'next/app';
-import {Provider} from 'react-redux';
+//import {Provider} from 'react-redux';
 import React from 'react';
 import { ScoreProvider } from '../context/ScoreContext';
+import '../styles/global.css'
 
 class MyApp extends App {
 

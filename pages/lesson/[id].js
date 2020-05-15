@@ -171,7 +171,9 @@ export async function getStaticPaths() {
       { params: { id: '174' } },
       { params: { id: '175' } },
       { params: { id: '176' } },
-      { params: { id: '177' } }
+      { params: { id: '177' } },
+      { params: { id: '178' } },
+      { params: { id: '179' } }
     ],
     fallback: false 
   };
