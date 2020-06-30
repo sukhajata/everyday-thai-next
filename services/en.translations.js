@@ -14,7 +14,7 @@ export default {
     name: "Name",
     female: "Female",
     male: "Male",
-    wellDone: "You're not as dumb as I look.",
+    wellDone: "Congratulations!",
     cannot: "I can't",
     email: "Email",
 }

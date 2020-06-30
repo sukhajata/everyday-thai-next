@@ -27,7 +27,7 @@ const Totals = ({  }) => {
     return (
         <Container maxWidth="sm">
             {result && 
-            <Grid container direction="column">
+            <Grid container direction="column" style={{ marginTop: 50 }}>
                 <Grid item>
                     <Typography variant="h6">
                         {language.wellDone}
