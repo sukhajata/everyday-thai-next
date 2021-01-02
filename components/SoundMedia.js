@@ -11,12 +11,7 @@ const SoundMedia = ({ textToSpeak, audioFileName }) => {
     const audioUrl = settings.audioUrl;
 
     const getAudioUrl = fileName => {
-        let path = '';
-        if (fileName.startsWith('f')) {
-          path =  audioUrl + 'female/' + fileName + '.mp3';
-        } else {
-          path =  audioUrl + 'male/' + fileName + '.mp3';
-        }
+        const path =  audioUrl + fileName + '.mp3';
         return path;
     }
 

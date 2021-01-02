@@ -25,7 +25,7 @@ import { setScore, setOrder, setCurrentSlide } from "../../context/scoreActions"
 import { useContext, useEffect } from "react";
 
 const Lesson = ({ lesson, firstSlide }) => {
-  const imageUrl = "https://sukhajata.com/images/";
+  const imageUrl = "https://sukhajata-com.preview-domain.com/images/";
   const { state, dispatch } = useContext(scoreContext);
   const { currentSlide, score, order } = state;
 
