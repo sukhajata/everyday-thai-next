@@ -86,7 +86,7 @@ Index.getInitialProps = async () => {
 
 export async function getStaticProps() {
   const res = await fetch(
-    "https://sukhajata-com.preview-domain.com/api/lessons-th-en-graphql.php"
+    "https://sukhajata.com/api/lessons-th-en-graphql.php"
   );
   const data = await res.json();
 

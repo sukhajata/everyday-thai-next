@@ -1,8 +1,8 @@
 const GOOGLE_TRANSLATE_API_KEY ="AIzaSyBJqySoURbtkysGF0yEaXu4SDuOJAdRbOo";
-const API_BASE = "https://sukhajata-com.preview-domain.com/api/";
+const API_BASE = "https://sukhajata.com/api/";
 
 export default {
-    CAT_SUB: "https://sukhajata-com.preview-domain.com/el/catsub.php?lanId=3",
+    CAT_SUB: "https://sukhajata.com/el/catsub.php?lanId=3",
     SUBCATEGORY: API_BASE + "subcategory-th-en.php",
     PHRASES: API_BASE + "phrases-th-en.php",
     LESSONS: API_BASE + "lessons-th-en-graphql.php",
