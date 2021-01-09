@@ -1,6 +1,7 @@
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import Router from 'next/router';
+import { useRouter } from 'next/router';
 
 import MultipleChoiceImage1 from "../../components/MultipleChoiceImage1";
 import MultipleChoiceText2 from "../../components/MultipleChoiceText2";
@@ -28,6 +29,13 @@ const Lesson = ({ lesson, firstSlide }) => {
   const imageUrl = "https://sukhajata.com/images/";
   const { state, dispatch } = useContext(scoreContext);
   const { currentSlide, score, order } = state;
+  const router = useRouter();
+
+  // If the page is not yet generated, this will be displayed
+  // initially until getStaticProps() finishes running
+  if (router.isFallback) {
+    return <div>Loading...</div>
+  }
 
   useEffect(() => {
     if (firstSlide) {
@@ -175,7 +183,7 @@ export async function getStaticPaths() {
       { params: { id: '178' } },
       { params: { id: '179' } }
     ],
-    fallback: false 
+    fallback: true 
   };
 }
 
