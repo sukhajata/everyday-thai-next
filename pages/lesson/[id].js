@@ -159,6 +159,18 @@ Lesson.getInitialProps = async ({ query }) => {
   };
 };*/
 
+export async function getServerSideProps({ params }) {
+  const lesson = await getLesson(params.id);
+  const firstSlide = await getSlideAndMedia(lesson.slides[0].id);
+
+  return {
+    props: {
+      lesson: lesson,
+      firstSlide: firstSlide,
+    },
+  }
+}
+/*
 export async function getStaticProps({ params }) {
   const lesson = await getLesson(params.id);
   const firstSlide = await getSlideAndMedia(lesson.slides[0].id);
@@ -186,5 +198,5 @@ export async function getStaticPaths() {
     fallback: true 
   };
 }
-
+*/
 export default Lesson;
