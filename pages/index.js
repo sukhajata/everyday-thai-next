@@ -37,7 +37,7 @@ const Index = ({ lessons }) => {
                 image={"/img/" + lesson.lessonOrder + ".jpg"}
               />
               <CardContent>
-                <Link href="/lesson/[lessonid]" as={`/lesson/${lesson.id}`}>
+                <Link href={`/lesson/${encodeURIComponent(lesson.id)}`} as={`/lesson/${lesson.id}`}>
                   <Grid container direction="row" spacing={2}>
                     <Grid item>
                       <Chip color="primary" label={lesson.lessonOrder} />
