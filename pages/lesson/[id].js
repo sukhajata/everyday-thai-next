@@ -39,7 +39,6 @@ const Lesson = ({ lesson, firstSlide }) => {
 
   useEffect(() => {
     if (firstSlide) {
-      //console.log(lesson);
       dispatch(setCurrentSlide(firstSlide));
       let _score = [];
       lesson.slides.forEach(() => {
@@ -158,7 +157,7 @@ Lesson.getInitialProps = async ({ query }) => {
     firstSlide: firstSlide,
   };
 };*/
-
+/*
 export async function getServerSideProps({ params }) {
   const lesson = await getLesson(params.id);
   const firstSlide = await getSlideAndMedia(lesson.slides[0].id);
@@ -169,8 +168,8 @@ export async function getServerSideProps({ params }) {
       firstSlide: firstSlide,
     },
   }
-}
-/*
+}*/
+
 export async function getStaticProps({ params }) {
   const lesson = await getLesson(params.id);
   const firstSlide = await getSlideAndMedia(lesson.slides[0].id);
@@ -195,8 +194,8 @@ export async function getStaticPaths() {
       { params: { id: '178' } },
       { params: { id: '179' } }
     ],
-    fallback: true 
+    fallback: false 
   };
 }
-*/
+
 export default Lesson;

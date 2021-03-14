@@ -1,4 +1,4 @@
-const GOOGLE_TRANSLATE_API_KEY ="AIzaSyBJqySoURbtkysGF0yEaXu4SDuOJAdRbOo";
+const GOOGLE_TRANSLATE_API_KEY = process.env.GOOGLE_TRANSLATE_API_KEY;
 const API_BASE = "https://sukhajata.com/api/";
 
 export default {
