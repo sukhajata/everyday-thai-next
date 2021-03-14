@@ -38,16 +38,18 @@ const Index = ({ lessons }) => {
               />
               <CardContent>
                 <Link href={`/lesson/${encodeURIComponent(lesson.id)}`} as={`/lesson/${lesson.id}`}>
-                  <Grid container direction="row" spacing={2}>
-                    <Grid item>
-                      <Chip color="primary" label={lesson.lessonOrder} />
+                  <a>
+                    <Grid container direction="row" spacing={2}>
+                      <Grid item>
+                        <Chip color="primary" label={lesson.lessonOrder} />
+                      </Grid>
+                      <Grid item>
+                        <Typography gutterBottom variant="h5" component="h2">
+                          {lesson.name}
+                        </Typography>
+                      </Grid>
                     </Grid>
-                    <Grid item>
-                      <Typography gutterBottom variant="h5" component="h2">
-                        {lesson.name}
-                      </Typography>
-                    </Grid>
-                  </Grid>
+                  </a>
                 </Link>
                 <ul>
                   {points.map(item => (
